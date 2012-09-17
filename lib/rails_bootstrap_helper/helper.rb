@@ -77,7 +77,7 @@ module RailsBootstrapHelper
       content = [content_tag(:span, '$', :class => "add-on"), " ", f.input_field(field, input_field_options)]
       content.reverse! if append
 
-      f.input field, label: lbl, :wrapper => :append do
+      f.input field, label: lbl, :wrapper => append ? :append : :prepend do
         content.join().html_safe
       end  
     end
