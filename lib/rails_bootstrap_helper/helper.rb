@@ -57,9 +57,11 @@ module RailsBootstrapHelper
         lbl = info_tag(input_field_options[:info]) + lbl
         input_field_options.delete(:info)
       end
+
       append = input_field_options.delete(:append)
       content = [content_tag(:span, '%', :class => "add-on"), " ", f.input_field(field, input_field_options)]
       content.reverse! if append
+
       f.input field, label: lbl, :wrapper => append ? :append : :prepend do
         content.join().html_safe
       end  
@@ -70,9 +72,13 @@ module RailsBootstrapHelper
         lbl = info_tag(input_field_options[:info]) + lbl
         input_field_options.delete(:info)
       end
+
+      append = input_field_options.delete(:append)
+      content = [content_tag(:span, '$', :class => "add-on"), " ", f.input_field(field, input_field_options)]
+      content.reverse! if append
+
       f.input field, label: lbl, :wrapper => :append do
-        content_tag(:span, '$', :class => "add-on") + " " + 
-        f.input_field(field, input_field_options)
+        content.join().html_safe
       end  
     end
 
@@ -81,9 +87,13 @@ module RailsBootstrapHelper
         lbl = info_tag(input_field_options[:info]) + lbl
         input_field_options.delete(:info)
       end
-      f.input field, label: lbl, :wrapper => :append do
-        (content_tag(:span, content_tag(:i, '', class: 'icon-calendar'), :class => "add-on")) + " " + 
-        f.input_field(field, {as: :string, class: "datepicker"}.merge(input_field_options))
+
+      append = input_field_options.delete(:append)
+      content = [content_tag(:span, content_tag(:i, '', class: 'icon-calendar'), :class => "add-on"), " ", f.input_field(field, {as: :string, class: "datepicker"}.merge(input_field_options))]
+      content.reverse! if append
+
+      f.input field, label: lbl, :wrapper => append ? :append : :prepend do
+        content.join().html_safe
       end  
     end
 
@@ -92,9 +102,13 @@ module RailsBootstrapHelper
         lbl = info_tag(input_field_options[:info]) + lbl
         input_field_options.delete(:info)
       end
-      f.input field, label: lbl, :wrapper => :append do
-        content_tag(:span, 'http://', :class => "add-on") + " " + 
-        f.input_field(field, input_field_options)
+
+      append = input_field_options.delete(:append)
+      content = [content_tag(:span, 'http://', :class => "add-on"), " ", f.input_field(field, input_field_options)]
+      content.reverse! if append
+
+      f.input field, label: lbl, :wrapper => append ? :append : :prepend do
+        content.join().html_safe
       end  
     end
 
@@ -103,9 +117,13 @@ module RailsBootstrapHelper
         lbl = info_tag(input_field_options[:info]) + lbl
         input_field_options.delete(:info)
       end
-      f.input field, label: lbl, :wrapper => :append do
-        (content_tag(:span, content_tag(:i, '', class: 'icon-user'), :class => "add-on")) + " " + 
-        f.input_field(field, input_field_options)
+
+      append = input_field_options.delete(:append)
+      content = [content_tag(:span, content_tag(:i, '', class: 'icon-user'), :class => "add-on"), " ", f.input_field(field, input_field_options)]
+      content.reverse! if append
+
+      f.input field, label: lbl, :wrapper => append ? :append : :prepend do
+        content.join().html_safe
       end  
     end
   end
