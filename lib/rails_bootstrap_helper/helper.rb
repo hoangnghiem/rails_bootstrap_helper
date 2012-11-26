@@ -2,6 +2,10 @@
 module RailsBootstrapHelper
   
   module Helper
+    def info_tag(text)
+      content_tag(:i, '', class: 'icon-info-sign', rel: 'tooltip', title: text) + " "
+    end
+    
     def status_tag(status, options = {})
       klass = ["label"]
       if options.has_key?(:level)
@@ -20,6 +24,20 @@ module RailsBootstrapHelper
       klass << options[:class].strip.split(/\s+/) unless options[:class].blank?
       options[:class] = klass.flatten.join(" ")
       content_tag(:span, status, options)
+    end
+
+    def icon_link_to(text, url, options)
+      icon = options.delete(:icon) if options.has_key?(:icon)
+      icon_tag = ''
+      if icon
+        icon_klass = ["icon-#{icon}"]
+        if options.has_key?(:white)
+          icon_klass << ["icon-white"]
+          options.delete(:white)
+        end
+        icon_tag = content_tag(:i, '', :class => icon_klass.join(' '))
+      end
+      link_to (icon_tag + " #{text}").html_safe, url, options
     end
     
     def button_link_to(text, url, options={})
