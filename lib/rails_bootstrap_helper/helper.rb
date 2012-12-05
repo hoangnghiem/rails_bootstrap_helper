@@ -6,7 +6,7 @@ module RailsBootstrapHelper
       content_tag(:i, '', class: 'icon-info-sign', rel: 'tooltip', title: text) + " "
     end
     
-    def label_tag(status, options = {})
+    def status_tag(status, options = {})
       klass = ["label"]
       if options.has_key?(:level)
         klass << "label-#{options.delete(:level).to_s}"
