@@ -3,7 +3,7 @@ module RailsBootstrapHelper
   
   module Helper
     def info_tag(text)
-      content_tag(:i, '', class: 'icon-info-sign', rel: 'tooltip', title: text) + " "
+      content_tag(:i, '', class: 'glyphicon-info-sign', rel: 'tooltip', title: text) + " "
     end
     
     def status_tag(status, options = {})
@@ -30,12 +30,12 @@ module RailsBootstrapHelper
       icon = options.delete(:icon) if options.has_key?(:icon)
       icon_tag = ''
       if icon
-        icon_klass = ["icon-#{icon}"]
+        icon_klass = ["glyphicon-#{icon}"]
         if options.has_key?(:white)
           icon_klass << ["icon-white"]
           options.delete(:white)
         end
-        icon_tag = content_tag(:i, '', :class => icon_klass.join(' '))
+        icon_tag = content_tag(:i, '', class: icon_klass.join(' '))
       end
       link_to (icon_tag + " #{text}").html_safe, url, options
     end
@@ -59,12 +59,12 @@ module RailsBootstrapHelper
       icon = options.delete(:icon) if options.has_key?(:icon)
       icon_tag = ''
       if icon
-        klass = ["icon-#{icon}"]
+        klass = ["glyphicon-#{icon}"]
         if options.has_key?(:white)
           klass << ["icon-white"]
           options.delete(:white)
         end
-        icon_tag = content_tag(:i, '', :class => klass.join(' '))
+        icon_tag = content_tag(:i, '', class: klass.join(' '))
       end
       
       button_link_to (icon_tag + " #{text}").html_safe, url, options
@@ -77,7 +77,7 @@ module RailsBootstrapHelper
       end
 
       append = input_field_options.delete(:append)
-      content = [content_tag(:span, '%', :class => "add-on"), " ", f.input_field(field, input_field_options)]
+      content = [content_tag(:span, '%', class: "add-on"), " ", f.input_field(field, input_field_options)]
       content.reverse! if append
 
       f.input field, label: lbl, :wrapper => append ? :append : :prepend do
@@ -92,7 +92,7 @@ module RailsBootstrapHelper
       end
 
       append = input_field_options.delete(:append)
-      content = [content_tag(:span, '$', :class => "add-on"), " ", f.input_field(field, input_field_options)]
+      content = [content_tag(:span, '$', class: "add-on"), " ", f.input_field(field, input_field_options)]
       content.reverse! if append
 
       f.input field, label: lbl, :wrapper => append ? :append : :prepend do
@@ -107,7 +107,7 @@ module RailsBootstrapHelper
       end
 
       append = input_field_options.delete(:append)
-      content = [content_tag(:span, content_tag(:i, '', class: 'icon-calendar'), :class => "add-on"), " ", f.input_field(field, {as: :string, class: "datepicker"}.merge(input_field_options))]
+      content = [content_tag(:span, content_tag(:i, '', class: 'glyphicon-calendar'), :class => "add-on"), " ", f.input_field(field, {as: :string, class: "datepicker"}.merge(input_field_options))]
       content.reverse! if append
 
       f.input field, label: lbl, :wrapper => append ? :append : :prepend do
@@ -122,7 +122,7 @@ module RailsBootstrapHelper
       end
 
       append = input_field_options.delete(:append)
-      content = [content_tag(:span, 'http://', :class => "add-on"), " ", f.input_field(field, input_field_options)]
+      content = [content_tag(:span, 'http://', class: "add-on"), " ", f.input_field(field, input_field_options)]
       content.reverse! if append
 
       f.input field, label: lbl, :wrapper => append ? :append : :prepend do
@@ -137,7 +137,7 @@ module RailsBootstrapHelper
       end
 
       append = input_field_options.delete(:append)
-      content = [content_tag(:span, content_tag(:i, '', class: 'icon-user'), :class => "add-on"), " ", f.input_field(field, input_field_options)]
+      content = [content_tag(:span, content_tag(:i, '', class: 'glyphicon-user'), class: "add-on"), " ", f.input_field(field, input_field_options)]
       content.reverse! if append
 
       f.input field, label: lbl, :wrapper => append ? :append : :prepend do
