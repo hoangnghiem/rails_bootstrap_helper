@@ -44,11 +44,6 @@ class RailsBootstrapHelperTest < ActionView::TestCase
     assert_equal icon_button_link_to("Custom ID Default Small Success", "http://google.com", id: "custom", size: 'small', level: 'success', icon: 'plus'), '<a href="http://google.com" class="btn btn-small btn-success" id="custom"><i class="glyphicon-plus"></i> Custom ID Default Small Success</a>'
   end
 
-  def test_percent_input
-    assert_match '<div class="input-prepend"><span class="add-on">%</span> <input class="string required" id="foo_name" name="foo[name]" size="50" type="text" /></div>', simple_form_for(:foo, url: '') {|f| percent_input(f, :name, "Name") }
-    assert_match '<div class="input-append"><input class="string required" id="foo_name" name="foo[name]" size="50" type="text" /> <span class="add-on">%</span></div>', simple_form_for(:foo, url: '') {|f| percent_input(f, :name, "Name", append: true) }
-  end
-
   def test_badge_link_to
     assert_equal badge_link_to("Inbox", "#", count: 42), '<a href="#">Inbox <span class="badge">42</span></a>'
   end
