@@ -26,6 +26,11 @@ module RailsBootstrapHelper
       content_tag(:span, status, options)
     end
 
+    def badge_link_to(name, url, options={})
+      badge = content_tag(:span, options.delete(:count).presence || "", class: "badge")
+      link_to((name + " " + badge).html_safe, url, options)
+    end
+
     def icon_link_to(text, url, options)
       icon = options.delete(:icon) if options.has_key?(:icon)
       icon_tag = ''
@@ -144,6 +149,7 @@ module RailsBootstrapHelper
         content.join().html_safe
       end  
     end
+
   end
 
 end
