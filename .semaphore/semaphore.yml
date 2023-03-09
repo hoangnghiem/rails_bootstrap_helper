@@ -14,5 +14,7 @@ blocks:
             - sem-version ruby 3.1.2
             - cache restore
             - bundle config set --local path 'vendor/bundle'
+            - bundle config set --local deployment 'true'
+            - bundle install
             - cache store
             - bundle exec rake test
